@@ -40,8 +40,8 @@ def main():
    docs = []
    docs = load_docs()
 
-   print(docs)
-   #chunks = split_docs(docs)
+   #print(docs)
+   chunks = split_docs(docs)
    
    
 

@@ -1,0 +1,100 @@
+# Python RAG Tutorial Setup on Windows (WSL Debian)
+
+This guide will walk you through setting up the Python RAG tutorial from [this YouTube video](https://www.youtube.com/watch?v=tcqEUSNCn8I) on a **Windows machine using WSL (Debian)**.
+
+## Prerequisites
+
+- Ensure you have **Windows Subsystem for Linux (WSL)** installed with a Debian image.
+- Basic familiarity with the Linux command line.
+
+## Step 1: Install WSL and Debian
+
+1. Open PowerShell (as Administrator) and run:
+   ```powershell
+   wsl --install -d Debian
+   ```
+2. Follow the instructions to create a user and complete the setup.
+3. Verify your WSL installation by running:
+   ```sh
+   wsl --list --verbose
+   ```
+4. If needed, refer to the official [WSL Installation Guide](https://learn.microsoft.com/en-us/windows/wsl/install).
+
+## Step 2: Install pyenv (Python Version Manager)
+
+1. Inside your WSL Debian terminal, install **pyenv** by following the official guide: [pyenv GitHub](https://github.com/pyenv/pyenv)
+2. Install dependencies required for Python builds:
+   ```sh
+   sudo apt update && sudo apt install \
+       build-essential \
+       curl \
+       libbz2-dev \
+       libffi-dev \
+       liblzma-dev \
+       libncursesw5-dev \
+       libreadline-dev \
+       libsqlite3-dev \
+       libssl-dev \
+       libxml2-dev \
+       libxmlsec1-dev \
+       llvm \
+       make \
+       tk-dev \
+       wget \
+       xz-utils \
+       zlib1g-dev
+   ```
+
+## Step 3: Install Python 3.13 and Virtual Environment
+
+1. After installing **pyenv**, install Python 3.13:
+   ```sh
+   pyenv install 3.13
+   ```
+2. Ensure you have `pip` and `venv` installed:
+   ```sh
+   pyenv exec python -m ensurepip
+   pyenv exec python -m venv venv313
+   ```
+3. Activate the virtual environment:
+   ```sh
+   source venv313/bin/activate
+   ```
+
+## Step 4: Install Dependencies
+
+1. Install required development tools:
+   ```sh
+   sudo apt-get install build-essential cmake
+   ```
+2. Install project dependencies:
+   ```sh
+   pip install -r requirements.txt
+   ```
+3. Install additional required libraries:
+   ```sh
+   pip install "unstructured[pdf]"
+   ```
+   This may require additional system dependencies:
+   ```sh
+   sudo apt-get update && sudo apt-get install ffmpeg libsm6 libxext6 -y
+   ```
+
+## Step 5: Running the Project
+
+1. Place a **PDF file** inside the `data/` folder.
+2. Run the script:
+   ```sh
+   python test.py
+   ```
+
+## Resources
+- **GitHub Repository**: [pixegami/rag-tutorial-v2](https://github.com/pixegami/rag-tutorial-v2/tree/main)
+- **YouTube Videos**:
+  - [Python RAG Tutorial (Main)](https://www.youtube.com/watch?v=tcqEUSNCn8I)
+  - [Additional Setup Guide](https://www.youtube.com/watch?v=2TJxpyO3ei4)
+
+---
+
+This setup was a challenge to get working, but now it's documented for an easier process next time. 🎉
+
