@@ -98,3 +98,68 @@ This guide will walk you through setting up the Python RAG tutorial from [this Y
 
 This setup was a challenge to get working, but now it's documented for an easier process next time. 🎉
 
+# 🤖 AI-Powered Assistant
+
+**AI-Powered Assistant** is a custom-built AI tool designed to clone and automate the personality of a real estate influencer for social media content creation.  
+Launched in **June 2024**, this assistant maintains high levels of personalized engagement at scale — without sacrificing authenticity.
+
+It is part of the **Artisan AI Suite**, a collection of intelligent tools for creators, entrepreneurs, and artists.
+
+---
+
+## 🧠 Overview
+
+Using Retrieval-Augmented Generation (RAG) techniques and fine-tuned local models, the AI-Powered Assistant:
+
+- 📝 **Generates Personalized Social Posts**  
+  Customizes captions, replies, and promotional material with influencer-specific language and tone.
+
+- 📈 **Maintains Audience Engagement at Scale**  
+  Supports consistent, authentic interaction without manual workload bottlenecks.
+
+- 🛠️ **Uses Local AI Models**  
+  Full control over data, style, and deployment — no need for cloud-based APIs or external hosting.
+
+- 🎯 **Focuses on Brand Voice Consistency**  
+  Trained and tuned specifically to replicate real-world influencer personas.
+
+---
+
+## ⚙️ How It Works
+
+1. **Data Ingestion**  
+   Personal branding material (social media posts, blogs, interviews) is collected into a training dataset.
+
+2. **Model Fine-Tuning**  
+   Fine-tunes a small language model to mirror the influencer’s style using a RAG-based training approach.
+
+3. **Content Generation**  
+   Users can input topics, prompts, or campaign goals, and the assistant generates text accordingly.
+
+4. **Social Automation Integration**  
+   Outputs can be scheduled directly into social media automation tools for streamlined posting.
+
+---
+
+## 🖥️ Setup Guide
+
+This project can be run locally using Python and WSL (Debian) on Windows.  
+Follow the [Python RAG Tutorial Setup on Windows (WSL Debian)](#) if you are starting from scratch.
+
+### Basic Requirements
+
+- Python 3.13+
+- Virtual Environment (`venv`)
+- PyTorch, HuggingFace Transformers, and Unstructured Libraries
+- Access to curated influencer data samples
+
+### Quick Setup (After Environment Creation)
+
+```bash
+# Install required libraries
+pip install -r requirements.txt
+
+# Install extra for PDF and file handling
+pip install "unstructured[pdf]"
+sudo apt-get install ffmpeg libsm6 libxext6 -y
+
